@@ -1,10 +1,13 @@
+let buttonOpening = document.querySelector('.button-opening');
+
+
 function sendMessage() {
     const message = document.getElementById('message').value;
     if (message.trim() === "") {
         alert("Напиши что-нибудь милое!");
     } else {
         alert("Сообщение отправлено: " + message);
-  
+
     }
 }
 const heartsContainer = document.querySelector('.hearts-container');
@@ -12,6 +15,15 @@ const heartsContainer = document.querySelector('.hearts-container');
 
 
 
+// остановка анимации кнопки
+buttonOpening.addEventListener('mouseover ', () => {
+    buttonOpening.classList.remove('button-opening-active');
+    console.log('get')
+});
+buttonOpening.addEventListener('mouseout', () => {
+    buttonOpening.classList.add('button-opening-active');
+    console.log('getOut')
+});
 
 // анимация сердечек
 function createHeart() {
@@ -36,6 +48,9 @@ function createHeart() {
     });
 
     heartsContainer.appendChild(heart);
+    setInterval(() => {
+        heart.remove();
+    }, 100 * duration * 1000);
 }
 
 // Создаем новые сердечки каждые 300ms

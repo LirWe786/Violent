@@ -1,7 +1,7 @@
 body {
     margin: 0;
     padding: 0;
-    font-family: 'Arial', sans-serif;
+    font-family: 'LaDiosa', sans-serif;
     background: linear-gradient(135deg, #ff9a9e, #fad0c4);
     overflow: hidden;
     display: flex;
@@ -18,6 +18,8 @@ body {
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
     z-index: 2;
     display: none;
+
+
 }
 
 h1 {
@@ -51,11 +53,27 @@ button:hover {
     background: #ff3b2f;
 }
 
+.button-opening {
+    min-width: 10%;
+    min-height: 5%;
+    text-align: center;
+    font-family: LaDiosa;
+    font-size: 25px;
+}
+.button-opening-active{
+    animation: colorfill linear 1s infinite;
+}
+.button-opening:hover{
+    background: #dc1200;
+    animation:none;
+}
+
 /* Анимация сердечек */
 .hearts-container {
-    position: relative;
+    position: absolute;
     width: 100%;
     height: 100%;
+    z-index: -1;
 }
 
 .heart {
@@ -67,11 +85,41 @@ button:hover {
     animation: fall linear infinite;
 }
 
+
+
 @keyframes fall {
     0% {
         transform: translateY(-100%);
     }
+
     100% {
         transform: translateY(100vh);
     }
 }
+
+/* кнопка */
+@keyframes colorfill {
+    0% {
+        background-color: #ff6f61;
+
+    }
+
+    50% {
+        background-color: #e0160c;
+    }
+
+    100% {
+        background-color: #ff6f61;
+    }
+
+}
+
+
+/* шрифт */
+@font-face {
+    
+    font-family: "LaDiosa"; 
+    src: url("./fonts/ladiosa.ttf") format("truetype"); 
+    font-style: normal; 
+    font-weight: normal; 
+  } 
