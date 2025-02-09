@@ -1,31 +1,53 @@
 let buttonOpening = document.querySelector('.button-opening');
-
-
-function sendMessage() {
-    const message = document.getElementById('message').value;
-    if (message.trim() === "") {
-        alert("Напиши что-нибудь милое!");
-    } else {
-        alert("Сообщение отправлено: " + message);
-
-    }
-}
 const heartsContainer = document.querySelector('.hearts-container');
+const heartBig = document.querySelector('.heart-big');
+const heartPText = document.querySelector('.heart-p-text');
 
 
 
 
-// остановка анимации кнопки
-buttonOpening.addEventListener('mouseover ', () => {
-    buttonOpening.classList.remove('button-opening-active');
-    console.log('get')
-});
-buttonOpening.addEventListener('mouseout', () => {
-    buttonOpening.classList.add('button-opening-active');
-    console.log('getOut')
-});
+function animBigHeart() {
+    for (let i = 0; i < 400; i++) {
+        heartBig.style.display = 'block'
+        setTimeout(() => {
+            
+            heartBig.style.width = `${i}px`;
+            heartBig.style.height = `${i}px`;
+            buttonOpening.style.display = 'none';
+            console.log(i)
+        }, i * 2 );
+       
+    }
+    setTimeout(() => {
+        heartBig.classList.add('heart-big-active');
+        setTimeout(() => {
+            heartBig.classList.remove('heart-big-active')
+            
+        }, 5000)
+        heartPText.classList.add('heart-p-text-active');
+    },1000)
+
+console.log('click')
+}
+
+
+
+// function sendMessage() {
+//     const message = document.getElementById('message').value;
+//     if (message.trim() === "") {
+//         alert("Напиши что-нибудь милое!");
+//     } else {
+//         alert("Сообщение отправлено: " + message);
+
+//     }
+// }
+
+
+
+
 
 // анимация сердечек
+
 function createHeart() {
     const heart = document.createElement('div');
     heart.classList.add('heart');
@@ -50,8 +72,23 @@ function createHeart() {
     heartsContainer.appendChild(heart);
     setInterval(() => {
         heart.remove();
-    }, 100 * duration * 1000);
+    }, 100 * duration * 700);
 }
 
 // Создаем новые сердечки каждые 300ms
 setInterval(createHeart, 300);
+
+
+buttonOpening.addEventListener('click', () => {
+    animBigHeart()
+    
+})
+
+buttonOpening.addEventListener('mouseover ', () => {
+    buttonOpening.classList.remove('button-opening-active');
+    console.log('get')
+});
+buttonOpening.addEventListener('mouseout', () => {
+    buttonOpening.classList.add('button-opening-active');
+    console.log('getOut')
+});

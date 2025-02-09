@@ -18,6 +18,11 @@ body {
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
     z-index: 2;
     display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-width: 300px;
+
 
 
 }
@@ -39,6 +44,7 @@ textarea {
 }
 
 button {
+    font-family: 'LaDiosa', sans-serif;
     background: #ff6f61;
     color: white;
     border: none;
@@ -60,12 +66,14 @@ button:hover {
     font-family: LaDiosa;
     font-size: 25px;
 }
-.button-opening-active{
+
+.button-opening-active {
     animation: colorfill linear 1s infinite;
 }
-.button-opening:hover{
+
+.button-opening:hover {
     background: #dc1200;
-    animation:none;
+    animation: none;
 }
 
 /* Анимация сердечек */
@@ -85,7 +93,64 @@ button:hover {
     animation: fall linear infinite;
 }
 
+.heart-big {
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="%23ff7c81" d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>');
+    position: relative;
+    width: 200px;
+    height: 200px;
+    display: none;
+    text-align: center;
 
+
+}
+
+.heart-big-active {
+    animation: fade linear 5s infinite;
+
+}
+
+.heart-p-text {
+    position: relative;
+    display: none;
+    font-size: 30px;
+    top: 100px;
+}
+
+.heart-p-text-active {
+    display: block;
+    animation: texting linear 2s;
+}
+
+
+@keyframes texting {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fade {
+    0% {
+
+        background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="%23ff7c81" d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>');
+        transform: perspective(1000px) rotateY(0deg);
+
+    }
+
+    50% {
+        background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="%23ff7f61" d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>');
+
+    }
+
+    100% {
+        background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="%23ff7c81" d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>');
+        transform: perspective(1000px) rotateY(360deg);
+        z-index: -1;
+    }
+}
 
 @keyframes fall {
     0% {
@@ -117,9 +182,9 @@ button:hover {
 
 /* шрифт */
 @font-face {
-    
-    font-family: "LaDiosa"; 
-    src: url("./fonts/ladiosa.ttf") format("truetype"); 
-    font-style: normal; 
-    font-weight: normal; 
-  } 
+
+    font-family: "LaDiosa";
+    src: url("./fonts/ladiosa.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+}
