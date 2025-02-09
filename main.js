@@ -2,6 +2,12 @@ let buttonOpening = document.querySelector('.button-opening');
 const heartsContainer = document.querySelector('.hearts-container');
 const heartBig = document.querySelector('.heart-big');
 const heartPText = document.querySelector('.heart-p-text');
+const container = document.querySelector('.container');
+
+
+
+
+
 
 
 
@@ -10,24 +16,39 @@ function animBigHeart() {
     for (let i = 0; i < 400; i++) {
         heartBig.style.display = 'block'
         setTimeout(() => {
-            
+
             heartBig.style.width = `${i}px`;
             heartBig.style.height = `${i}px`;
             buttonOpening.style.display = 'none';
             console.log(i)
-        }, i * 2 );
-       
+        }, i * 2);
+
     }
     setTimeout(() => {
         heartBig.classList.add('heart-big-active');
         setTimeout(() => {
             heartBig.classList.remove('heart-big-active')
-            
+            heartPText.classList.add('heart-p-text-active');
         }, 5000)
-        heartPText.classList.add('heart-p-text-active');
-    },1000)
 
-console.log('click')
+    }, 1000)
+    setTimeout(() => {
+        heartBig.classList.remove('heart-big-active');
+        heartPText.classList.remove('heart-p-text-active');
+        // for (let i = 10; i > 0  ; i--) {
+        //     setTimeout(() => {
+        //         heartBig.style.opacity = `${1-0.1}`;
+
+        //         console.log(i)
+        //     }, i * 2);
+          
+        // }
+        heartBig.style.display = 'none';
+        container.classList.add('container-active');
+    }, 7000)
+   
+
+    console.log('click')
 }
 
 
@@ -79,11 +100,12 @@ function createHeart() {
 setInterval(createHeart, 300);
 
 
+
+//eventListeners
+
 buttonOpening.addEventListener('click', () => {
     animBigHeart()
-    
 })
-
 buttonOpening.addEventListener('mouseover ', () => {
     buttonOpening.classList.remove('button-opening-active');
     console.log('get')

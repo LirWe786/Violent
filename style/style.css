@@ -12,8 +12,7 @@ body {
 
 .container {
     text-align: center;
-    background: rgba(255, 255, 255, 0.8);
-    padding: 20px;
+    background: rgb(255, 255, 255);
     border-radius: 15px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
     z-index: 2;
@@ -22,10 +21,12 @@ body {
     align-items: center;
     justify-content: center;
     min-width: 300px;
-
+    font-size: 24px;
+    position: relative;
 
 
 }
+
 
 h1 {
     color: #ff6f61;
@@ -98,10 +99,9 @@ button:hover {
     position: relative;
     width: 200px;
     height: 200px;
-    display: none;
     text-align: center;
-
-
+    display: none;
+    left: 0;
 }
 
 .heart-big-active {
@@ -121,6 +121,36 @@ button:hover {
     animation: texting linear 2s;
 }
 
+.hide {
+    animation: hide linear 1s;
+
+}
+
+.container-active{
+    display: block;
+    animation: letterShow  linear 1s ;
+   }
+   
+
+@keyframes letterShow {
+    0% {
+        transform: translateY(60vh);
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+@keyframes hide {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+
+    }
+}
 
 @keyframes texting {
     0% {
