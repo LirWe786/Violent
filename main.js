@@ -13,59 +13,25 @@ const container = document.querySelector('.container');
 
 
 function animBigHeart() {
-    for (let i = 0; i < 400; i++) {
-        heartBig.style.display = 'block'
-        setTimeout(() => {
-
-            heartBig.style.width = `${i}px`;
-            heartBig.style.height = `${i}px`;
-            buttonOpening.style.display = 'none';
-            console.log(i)
-        }, i * 2);
-
-    }
+    heartBig.classList.add('unHiden');
+    buttonOpening.style.display = 'none';
     setTimeout(() => {
         heartBig.classList.add('heart-big-active');
-        setTimeout(() => {
-            heartBig.classList.remove('heart-big-active')
-            heartPText.classList.add('heart-p-text-active');
-        }, 5000)
-
-    }, 1000)
+    }, 3000)
+    heartPText.classList.add('unHiden');
     setTimeout(() => {
-        heartBig.classList.remove('heart-big-active');
-        heartPText.classList.remove('heart-p-text-active');
-        // for (let i = 10; i > 0  ; i--) {
-        //     setTimeout(() => {
-        //         heartBig.style.opacity = `${1-0.1}`;
-
-        //         console.log(i)
-        //     }, i * 2);
-          
-        // }
-        heartBig.style.display = 'none';
-        container.classList.add('container-active');
+        heartBig.classList.remove('unHiden');
+        heartBig.classList.add('hiden');
+        heartPText.classList.remove('unHiden');
+        heartPText.classList.add('hiden');
+        setTimeout(() => {
+            container.classList.add('container-active');
+            }, 2000)
     }, 7000)
-   
+    
 
     console.log('click')
 }
-
-
-
-// function sendMessage() {
-//     const message = document.getElementById('message').value;
-//     if (message.trim() === "") {
-//         alert("Напиши что-нибудь милое!");
-//     } else {
-//         alert("Сообщение отправлено: " + message);
-
-//     }
-// }
-
-
-
-
 
 // анимация сердечек
 

@@ -100,20 +100,54 @@ button:hover {
     width: 200px;
     height: 200px;
     text-align: center;
+    transition-duration: 3s;
+    transition-behavior: allow-descrete;
     display: none;
     left: 0;
+    opacity: 0;
+
 }
 
 .heart-big-active {
-    animation: fade linear 5s infinite;
+    animation: fade linear 3s;
 
 }
 
 .heart-p-text {
     position: relative;
+    transition-duration: 3s;
+    transition-behavior: allow-descrete;
     display: none;
     font-size: 30px;
     top: 100px;
+    opacity: 0;
+}
+
+.heart-p-text.hiden {
+    position: relative;
+    opacity: 0;
+    font-size: 5px;
+    display: none;
+
+@starting-style {
+    display: block;
+    opacity: 1;
+    font-size: 30px;
+}
+
+}
+
+.heart-p-text.unHiden {
+    display: block;
+    opacity: 1;
+    font-size: 30px;
+
+@starting-style {
+    position: relative;
+    opacity: 0;
+    font-size: 5px;
+}
+
 }
 
 .heart-p-text-active {
@@ -126,21 +160,52 @@ button:hover {
 
 }
 
-.container-active{
+.heart-big.hiden{
     display: block;
-    animation: letterShow  linear 1s ;
-   }
-   
+    opacity: 0;
+    width: 20px;
+    height: 20px;
+
+    @starting-style {
+        display: block;
+        opacity: 1;
+        width: 300px;
+        height: 300px;
+    }
+}
+
+.heart-big.unHiden {
+    display: block;
+    opacity: 1;
+    width: 300px;
+    height: 300px;
+    
+
+    @starting-style {
+        
+        opacity: 0;
+        width: 20px;
+        height: 20px;
+    }
+} 
+
+.container-active {
+    display: block;
+    animation: letterShow linear 1s;
+}
+
 
 @keyframes letterShow {
     0% {
         transform: translateY(60vh);
         opacity: 0;
     }
+
     100% {
         opacity: 1;
     }
 }
+
 @keyframes hide {
     0% {
         opacity: 1;
